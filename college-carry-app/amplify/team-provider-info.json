@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-collegecarryapp-dev-122916-authRole",
+      "UnauthRoleArn": "arn:aws:iam::495456623573:role/amplify-collegecarryapp-dev-122916-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::495456623573:role/amplify-collegecarryapp-dev-122916-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-collegecarryapp-dev-122916-deployment",
+      "UnauthRoleName": "amplify-collegecarryapp-dev-122916-unauthRole",
+      "StackName": "amplify-collegecarryapp-dev-122916",
+      "StackId": "arn:aws:cloudformation:us-east-2:495456623573:stack/amplify-collegecarryapp-dev-122916/4ade8ab0-a8cb-11ee-83fe-0ab32840d543",
+      "AmplifyAppId": "d23s0mqxikjn6e"
+    }
+  }
+}
