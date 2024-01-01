@@ -12,6 +12,7 @@
     "vite": "^5.0.8"
   },
   "dependencies": {
-    "aws-amplify": "^6.0.9"
+    "aws-amplify": "^6.0.9",
+    "express": "^4.18.2"
   }
 }

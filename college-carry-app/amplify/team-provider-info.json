@@ -10,6 +10,11 @@
       "StackName": "amplify-collegecarryapp-dev-122916",
       "StackId": "arn:aws:cloudformation:us-east-2:495456623573:stack/amplify-collegecarryapp-dev-122916/4ade8ab0-a8cb-11ee-83fe-0ab32840d543",
       "AmplifyAppId": "d23s0mqxikjn6e"
+    },
+    "categories": {
+      "function": {
+        "collegecarrylambdafunc": {}
+      }
     }
   }
 }
