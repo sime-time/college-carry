@@ -3,8 +3,8 @@ import TopBar from "./TopBar.svelte"
 import NavBar from "./NavBar.svelte"
 </script>
 
-<div>
-  <TopBar />
+<TopBar />
+<header>
   <NavBar />
-</div>
+</header>
 

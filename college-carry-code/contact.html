@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | College Carry</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <script src="./js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/6a561972d4.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="body-overlay"></div>
+    <div class="top-bar">
+        <div class="container">
+            <div class="icons-contact">
+                <a href="tel:(260)804-3503"><i class="fa-solid fa-phone"></i><span>260-804-3503</span></a>
+                <a href="mailto:collegecarry@outlook.com?subject=Customer Contact"><i class="fa-solid fa-envelope"></i><span>collegecarry@outlook.com</span></a>
+            </div>
+        </div>
+    </div>
+
+    <header class="sign-pages">
+        <div class="container">
+            <div class="logo">
+                <a href="./index.html"><img src="./images/logo.png" alt=""></a>
+            </div>
+            <nav>
+                <div class="cross">
+                    <div class="fa-solid fa-x"></div>
+                </div>
+                <a href="./index.html">Home</a>
+                <a href="./pricing.html">Pricing</a>
+                <a href="./about.html">About us</a>
+                <a href="./contact.html" class="active">Contact us</a>
+                <div class="mobile">
+                    <a href="tel:(260)804-3503"><i class="fa-solid fa-phone"></i><span> Call Now</span></a>
+                    <a href="mailto:collegecarry@outlook.com?subject=Customer Contact"><i class="fa-solid fa-envelope"></i><span> Email Us</span></a>
+                </div>
+            </nav>
+            <div class="bars">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <div class="container">
+                <div class="title">Reserve a move</div>
+                <form >
+                    <div>
+                        <div>
+                            <label for="fname">First Name: <sup>*</sup></label><br>
+                            <input id="fname" type="text" placeholder="John" required>
+                        </div>
+                        <div>
+                            <label for="lname">Last Name: <sup>*</sup></label><br>
+                            <input id="lname" type="text" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="mail">Email Address: <sup>*</sup></label><br>
+                            <input id="mail" type="email" placeholder="johndoe@domain.com" required>
+                        </div>
+                        <div>
+                            <label for="phone">Phone: <sup>*</sup></label><br>
+                            <input id="phone" type="tel" placeholder="+000 0000 000" required>
+                        </div>
+                    </div>
+                    <div class="no-width">
+                        <div>
+                            <label>Select One:</label><br>
+                            <select>
+                                <option value="dorm">DORM</option>
+                                <option value="apart">APARTMENTS</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="serv">Required Service:</label>
+                            <div class="radioss">
+                                <div>
+                                    <input type="radio" id="mo" name="mov">
+                                    <label for="mo">Move in</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="mov" name="mov">
+                                    <label for="mov">Move out</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="dateTimeInput">Select Date and Time:</label>
+                            <br>
+                            <input type="datetime-local" id="dateTimeInput" name="dateTimeInput">
+                        </div>
+                        <div>
+                            <label for="add">Address:</label><br>
+                            <input type="address">
+                        </div>
+                    </div>
+                    <div class="btn-box">
+                        <a href="#" class="normal-btn">Book Now</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <img src="./images/logo.png" width="120px">
+            <p>FRIENDLY COLLEGE MOVING SERVICE</p>
+            <div class="copy">Copyright 2023, CollegeCarry Inc</div>
+        </div>
+    </footer>
+</body>
+
+</html>
