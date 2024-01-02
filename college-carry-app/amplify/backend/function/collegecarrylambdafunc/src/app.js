@@ -7,8 +7,6 @@ See the License for the specific language governing permissions and limitations 
 */
 
 
-
-
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
@@ -44,42 +42,9 @@ app.get('/email/*', function(req, res) {
 * Example post method *
 ****************************/
 
-// import nodemailer library
-/*
-const nodemailer = require('nodemailer');
-
-// create a transporter using your email service provider's SMTP settings
-const senderEmail = 'contact@dreamcatch.app';
-const senderPass = ''
-
-const transporter = nodemailer.createTransport({
-  host: 'smtp.titan.email',
-  port: 465, 
-  secure: true,
-  auth: {
-    user: senderEmail,
-    pass: senderPass
-  }
-});
-
-// define the email's contents
-
-let mailOptions = {
-  from: senderEmail,
-  to: '', 
-  subject: '',
-  text: '', 
-}
-// send the email via the transporter
-*/
 app.post('/email', function(req, res) {
   // Add your code here
-  const{ recieverEmail } = req.body
-
   res.json({success: 'post call succeed!', url: req.url, body: req.body})
-  res.send({
-    test: 'value here'
-  })
 });
 
 app.post('/email/*', function(req, res) {
