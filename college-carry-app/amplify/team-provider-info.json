@@ -13,7 +13,13 @@
     },
     "categories": {
       "function": {
-        "collegecarrylambdafunc": {}
+        "collegecarrylambdafunc": {
+          "deploymentBucketName": "amplify-collegecarryapp-dev-122916-deployment",
+          "s3Key": "amplify-builds/collegecarrylambdafunc-717a744f446d49537755-build.zip"
+        }
+      },
+      "api": {
+        "collegecarryAPI": {}
       }
     }
   }

@@ -21,5 +21,23 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
+  },
+  "parameters": {
+    "AMPLIFY_function_collegecarrylambdafunc_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "collegecarrylambdafunc"
+        }
+      ]
+    },
+    "AMPLIFY_function_collegecarrylambdafunc_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "collegecarrylambdafunc"
+        }
+      ]
+    }
   }
 }
