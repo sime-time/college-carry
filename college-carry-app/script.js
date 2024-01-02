@@ -6,10 +6,6 @@ Amplify.configure(amplifyconfig);
 
 document.addEventListener('DOMContentLoaded', function() {
   const apiUrl = 'https://pu5dvbczdc.execute-api.us-east-2.amazonaws.com/dev/email'
-
-  
-
-
   const button = document.getElementById("MutationEventButton");
   const results = document.getElementById('QueryResult');
 
@@ -20,13 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = {
       firstName: "Jon",
       lastName: "Doe",
-      email: "jondoe@domain.com",
+      email: "simeondunn25@gmail.com",
       property: "dorm",
       requiredService: "move-in",
       date: "01/01/2001",
       time: "13:00",
       address: "1234 Main St."
-    }
+    };
 
     // make POST request that sends emails 
     fetch(apiUrl, {
