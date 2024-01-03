@@ -43,34 +43,55 @@ app.get('/email/*', function(req, res) {
 * Example post method *
 ****************************/
 
-const senderEmail = 'simeondunn25@gmail.com'
-const senderPass = 'iqcp dqzx oxua mbuq'
-
 app.post('/email', async function(req, res) {
-  // Add your code here
+
+  // access environment variables
+  const senderService = process.env.EMAIL_SERVICE
+  const senderHost = process.env.EMAIL_HOST
+  const senderEmail = process.env.EMAIL_USERNAME
+  const senderPass = process.env.EMAIL_PASSWORD
+  
   try {
+    // create a transporter to send emails
     const transporter = nodemailer.createTransport({
-      service: 'gmail', 
-      host: "smtp.gmail.com",
+      host: senderHost, 
       port: 587,
-      secure: false,
+      secure: false, 
       auth: {
         user: senderEmail,
-        pass: senderPass 
+        pass: senderPass
       }
     }); 
 
-    const mailContent = {
-      to: req.body.email,
+    // draft an email to be sent to the customer
+    const customerMailContent = {
+      to: senderEmail,//req.body.email,
       from: senderEmail,
-      subject: req.body.requiredService,
-      text: `<p>Hello ${req.body.firstName}! you live at ${req.body.address}</p>`
+      subject: "Customer Booking Appointment Test",
+      text: `Hello ${req.body.firstName}! Thank you for booking a ${req.body.requiredService} with us.`
     };
+
+    // draft an email to be sent to college carry business email internally
+    const internalMailContent = {
+      to: senderEmail,
+      from: senderEmail,
+      subject: "Internal Booking Notification Test",
+      text: `A customer has booked a ${req.body.requiredService}: \n
+        Name:     ${req.body.firstName} ${req.body.lastName} \n
+        Email:    ${req.body.email} \n
+        Address:  ${req.body.address} \n
+        Property: ${req.body.property} \n
+        Date:     ${req.body.date} \n
+        Time:     ${req.body.time}`
+    };
+
     // send the email
-    const info = await transporter.sendMail(mailContent);
+    const customer_mail_info = await transporter.sendMail(customerMailContent);
+    const internal_mail_info = await transporter.sendMail(internalMailContent);
 
     // log the result
-    console.log('Email sent:', info.response);
+    console.log('Email sent to customer:', customer_mail_info.response);
+    console.log('Email sent internally:', internal_mail_info.response);
 
     // respond to the client 
     res.json({success: 'post call succeed!', url: req.url, body: req.body})
@@ -80,7 +101,7 @@ app.post('/email', async function(req, res) {
     console.error('Error sending email:', error);
 
     // respond to the client with an error 
-    res.status(500).json({ error: 'internal server error' });
+    res.status(500).json({ error: 'internal server error - error sending email' });
   }
 });
 
