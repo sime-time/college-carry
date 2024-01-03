@@ -6,8 +6,7 @@ Amplify.configure(amplifyconfig);
 
 document.addEventListener('DOMContentLoaded', function() {
   const apiUrl = 'https://pu5dvbczdc.execute-api.us-east-2.amazonaws.com/dev/email'
-  const button = document.getElementById("MutationEventButton");
-  const results = document.getElementById('QueryResult');
+  const submit_form_btn = document.getElementById("MutationEventButton");
 
 
   button.addEventListener('click', () => {
@@ -39,8 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => console.error('Error:', error));
     
     console.log('contact form submitted');
-    const node = document.createTextNode("email sent")
-    results.appendChild(node);
   });
 
 });
