@@ -33,8 +33,8 @@
                 </div>
                 <a href="./index.html" class="active">Home</a>
                 <a href="./pricing.html">Pricing</a>
-                <a href="./about.html">About us</a>
-                <a href="./contact.html">Contact us</a>
+                <a href="./about.html">About Us</a>
+                <a href="./contact.html">Contact Us</a>
                 <div class="mobile">
                     <a href="tel:(260)804-3503"><i class="fa-solid fa-phone"></i><span> Call Now</span></a>
                     <a href="mailto:collegecarry@outlook.com?subject=Customer Contact"><i class="fa-solid fa-envelope"></i><span> Email Us</span></a>
@@ -224,6 +224,34 @@
             <div class="copy">Copyright 2023, CollegeCarry Inc</div>
         </div>
     </footer>
+
+    <script>
+        // Home Page Image Slider
+        document.addEventListener("DOMContentLoaded", () => {
+            let currentIndex = 0;
+            const text = document.querySelectorAll('.slide-text');
+            const slides = document.querySelectorAll(".slide-item");
+            const overlay = document.querySelectorAll(".overlay");
+
+            const showSlide = (index) => {
+                slides.forEach((slide) => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+                text.forEach((texts) => texts.classList.remove('active'));
+                text[index].classList.add('active');
+                overlay.forEach((over) => over.classList.remove('active'));
+                overlay[index].classList.add('active');
+
+            };
+
+            const nextSlide = () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            };
+
+            setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            showSlide(currentIndex);
+        });
+    </script>
 </body>
 
 </html>

@@ -1,30 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let currentIndex = 0;
-  const text = document.querySelectorAll('.slide-text');
-  const slides = document.querySelectorAll(".slide-item");
-  const overlay = document.querySelectorAll(".overlay");
-
-  const showSlide = (index) => {
-    slides.forEach((slide) => slide.classList.remove('active'));
-    slides[index].classList.add('active');
-    text.forEach((texts) => texts.classList.remove('active'));
-    text[index].classList.add('active');
-    overlay.forEach((over) => over.classList.remove('active'));
-    overlay[index].classList.add('active');
-
-  };
-
-  const nextSlide = () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-  };
-
-  setInterval(nextSlide, 5000); // Change slide every 5 seconds
-  showSlide(currentIndex);
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.querySelector(".body-overlay");
   overlay.addEventListener("animationend", () => {
     overlay.style.display = "none";
