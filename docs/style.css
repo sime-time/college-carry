@@ -40,11 +40,16 @@ a {
     height: 100%;
     background: #ffffff;
     /* Set the background color of the overlay */
-    animation: fadeIn 1200ms ease-in-out forwards;
+    animation: fadeOut 1200ms ease-in-out forwards;
+    z-index: 100;
+}
+
+.body-overlay.animation-complete {
+    /* overlay completely disapears when fadeOut is complete */
     z-index: -1;
 }
 
-@keyframes fadeIn {
+@keyframes fadeOut {
     from {
         opacity: 1;
     }
