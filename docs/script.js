@@ -1,6 +1,6 @@
 import './style.css'
-import { Amplify } from 'aws-amplify';
-import amplifyconfig from './src/amplifyconfiguration.json';
+import { Amplify } from '../docs/aws-amplify';
+import amplifyconfig from '../docs/src/amplifyconfiguration.json';
 //import { response } from './amplify/backend/function/collegecarrylambdafunc/src/app';
 Amplify.configure(amplifyconfig);
 
