@@ -1,6 +1,6 @@
-require('./style.css');
-const { Amplify } = require('aws-amplify');
-const amplifyconfig = require('./src/amplifyconfiguration.json');
+import './style.css'
+import { Amplify } from 'aws-amplify';
+import amplifyconfig from './src/amplifyconfiguration.json';
 //import { response } from './amplify/backend/function/collegecarrylambdafunc/src/app';
 Amplify.configure(amplifyconfig);
 
