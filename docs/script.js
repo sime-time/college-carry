@@ -1,4 +1,4 @@
-import './style.css'
+//import './style.css'
 //import { Amplify } from '../docs/aws-amplify';
 //import amplifyconfig from '../docs/src/amplifyconfiguration.json';
 //import { response } from './amplify/backend/function/collegecarrylambdafunc/src/app';
