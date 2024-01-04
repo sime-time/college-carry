@@ -4,6 +4,32 @@ import amplifyconfig from './src/amplifyconfiguration.json';
 //import { response } from './amplify/backend/function/collegecarrylambdafunc/src/app';
 Amplify.configure(amplifyconfig);
 
+// Home Page Image Slider
+document.addEventListener("DOMContentLoaded", () => {
+  let currentIndex = 0;
+  const text = document.querySelectorAll('.slide-text');
+  const slides = document.querySelectorAll(".slide-item");
+  const overlay = document.querySelectorAll(".overlay");
+
+  const showSlide = (index) => {
+      slides.forEach((slide) => slide.classList.remove('active'));
+      slides[index].classList.add('active');
+      text.forEach((texts) => texts.classList.remove('active'));
+      text[index].classList.add('active');
+      overlay.forEach((over) => over.classList.remove('active'));
+      overlay[index].classList.add('active');
+
+  };
+
+  const nextSlide = () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+  };
+
+  setInterval(nextSlide, 5000); // Change slide every 5 seconds
+  showSlide(currentIndex);
+});
+
 document.addEventListener('DOMContentLoaded', function() {
   const apiUrl = 'https://pu5dvbczdc.execute-api.us-east-2.amazonaws.com/dev/email'
   const form_submit_btn = document.getElementById("form-submit-btn");
