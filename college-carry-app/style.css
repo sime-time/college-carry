@@ -41,7 +41,7 @@ a {
     background: #ffffff;
     /* Set the background color of the overlay */
     animation: fadeIn 1200ms ease-in-out forwards;
-    z-index: 100;
+    z-index: -1;
 }
 
 @keyframes fadeIn {
