@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const body_overlay = document.querySelector(".body-overlay");
   body_overlay.addEventListener("animationend", () => {
     body_overlay.classList.add('animation-complete')
-    //body_overlay.style.display = "none";
+    body_overlay.style.display = "none";
     console.log('animation end')
   });
 
