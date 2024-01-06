@@ -868,6 +868,54 @@ a.normal-btn:hover::before {
     background-color: #edf2f4;
   }
 
+  .form-container form input[type="radio"]{
+    width: 30px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    font-family: inherit;
+    background-color: #edf2f4;
+  }
+
+
+
+  /* Radio Buttons */
+  .radio-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .radios {
+    flex-direction: column;
+  }
+  
+  textarea {
+    margin: 0;
+    width: 620px;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: rgb(118, 118, 118);
+    background-color: #edf2f4;
+    resize: vertical; /* Allow vertical resizing of the textarea */
+  }
+
+  .add-notes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .add-notes label {
+    width: 100%; 
+    margin-bottom: -17px; /* Add margin-bottom to separate label and textarea */
+  }
+
   
   .form-container form .no-width input{
     width: unset;
@@ -980,15 +1028,6 @@ a.normal-btn:hover::before {
     text-decoration: none;
 }
 
-/* Radio Buttons */
-.radios > label{
-    display: flex;
-    align-items: center;
-}
-
-.radios input[type="radio"] {
-    display: inline-block;
-}
 
 /* Footer */
 footer{
@@ -1069,5 +1108,9 @@ footer .copy{
     }
     .form-container form > div{
         flex-direction: column;
+    }
+
+    textarea {
+        width: 300px;
     }
 }

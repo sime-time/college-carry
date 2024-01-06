@@ -73,38 +73,41 @@
                     </div>
                     <div>
                         <div>
-                            <label for="serv">Required Service:</label>
+                            <label for="add">Address: <sup>*</sup></label><br>
+                            <input type="address" required>
+                        </div>
+                        <div>
+                            <label>Select One:</label><br>
+                            <select required>
+                                <option value="dorm">DORM</option>
+                                <option value="apart">APARTMENTS</option>
+                            </select>
+                        </div>                     
+                    </div>
+                    <div> 
+                        <div>
+                            <label for="dateTimeInput">Select Date and Time:</label>
+                            <br>
+                            <input type="datetime-local" id="dateTimeInput" name="dateTimeInput" required>
+                        </div>
+                        <div class="radio-container">
+                            <label for="serv" class="radio-label">Required Service:</label>
                             <div class="radios">
                                 <label>
-                                    <input type="radio" id="mov-in" name="mov" value="move-in">Move in
+                                    <input type="radio" id="mov-in" name="mov" value="move-in" checked>Move in
                                 </label>
                                 <label>
                                     <input type="radio" id="mov-out" name="mov" value="move-out">Move out
                                 </label>
                             </div>
                         </div>
-                        <div>
-                            <label for="add">Address:</label><br>
-                            <input type="address">
-                        </div>
-                        
                     </div>
-                    <div>
-                        <div>
-                            <label>Select One:</label><br>
-                            <select>
-                                <option value="dorm">DORM</option>
-                                <option value="apart">APARTMENTS</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="dateTimeInput">Select Date and Time:</label>
-                            <br>
-                            <input type="datetime-local" id="dateTimeInput" name="dateTimeInput">
-                        </div>
+                    <div class="add-notes">
+                        <label for="additionalNotes">Additional Notes: </label>
+                        <textarea id="additionalNotes" name="additionalNotes" rows="4"></textarea>
                     </div>
                     <div class="btn-box">
-                        <input type="submit" id="form-submit-btn" class ="normal-btn" value="Book Now"/>
+                        <a id="form-submit-btn" class="normal-btn">Book Now</a>
                     </div>
                 </form>
             </div>
