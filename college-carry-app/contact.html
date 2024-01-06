@@ -49,8 +49,8 @@
     <main>
         <div class="form-container">
             <div class="container">
-                <div class="title">Reserve a move</div>
-                <form >
+                <h1 class="title">Reserve a move</h1>
+                <form>
                     <div>
                         <div>
                             <label for="fname">First Name: <sup>*</sup></label><br>
@@ -68,27 +68,26 @@
                         </div>
                         <div>
                             <label for="phone">Phone: <sup>*</sup></label><br>
-                            <input id="phone" type="tel" placeholder="+000 0000 000" required>
+                            <input id="phone" type="tel" placeholder="(000) 000-0000" required>
                         </div>
                     </div>
                     <div>
                         <div>
+                            <label for="serv">Required Service:</label>
+                            <div class="radios">
+                                <label>
+                                    <input type="radio" id="mov-in" name="mov" value="move-in">Move in
+                                </label>
+                                <label>
+                                    <input type="radio" id="mov-out" name="mov" value="move-out">Move out
+                                </label>
+                            </div>
+                        </div>
+                        <div>
                             <label for="add">Address:</label><br>
                             <input type="address">
                         </div>
-                        <div>
-                            <label for="serv">Required Service:</label>
-                            <div class="radios">
-                                <div>
-                                    <input type="radio" id="mo" name="mov">
-                                    <label for="mo">Move in</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="mov" name="mov">
-                                    <label for="mov">Move out</label>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div>
                         <div>

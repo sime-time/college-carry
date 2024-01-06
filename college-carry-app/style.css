@@ -859,9 +859,7 @@ a.normal-btn:hover::before {
     align-items: center;
     margin: 10px 0;
   }
-  /* .form-container form div > div{
-    
-  } */
+
   .form-container form input{
     width: 300px;
     padding: 10px 10px;
@@ -869,6 +867,8 @@ a.normal-btn:hover::before {
     font-family: inherit;
     background-color: #edf2f4;
   }
+
+  
   .form-container form .no-width input{
     width: unset;
   }
@@ -979,6 +979,17 @@ a.normal-btn:hover::before {
     color: #333;
     text-decoration: none;
 }
+
+/* Radio Buttons */
+.radios > label{
+    display: flex;
+    align-items: center;
+}
+
+.radios input[type="radio"] {
+    display: inline-block;
+}
+
 /* Footer */
 footer{
     text-align: center;
