@@ -46,10 +46,11 @@ app.get('/email/*', function(req, res) {
 app.post('/email', async function(req, res) {
 
   // access environment variables
-  const senderService = process.env.EMAIL_SERVICE
-  const senderHost = process.env.EMAIL_HOST
-  const senderEmail = process.env.EMAIL_USERNAME
-  const senderPass = process.env.EMAIL_PASSWORD
+  const senderService = process.env.EMAIL_SERVICE;
+  const senderHost = process.env.EMAIL_HOST;
+  const senderEmail = process.env.EMAIL_USERNAME;
+  const senderPass = process.env.EMAIL_PASSWORD;
+  const senderName = process.env.EMAIL_SENDER;
   
   try {
     // create a transporter to send emails
@@ -64,25 +65,75 @@ app.post('/email', async function(req, res) {
     }); 
 
     // draft an email to be sent to the customer
+    // cc back to sender so they can see what they've sent
+    const payment_link = "https://buy.stripe.com/6oEcOr8K10cM1IkfZ0"
+    const contact_info = '<a href="tel:(260)804-3503"><span>260-804-3503</span></a>'
+    const customer_message = `
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+    </style>
+    <div class="container">
+        <h1>Thank You for Booking with Us!</h1>
+        <p>Dear ${req.body.firstName} ${req.body.lastName},</p>
+        <p>We appreciate your trust in ${senderName} for your upcoming move. We are excited to assist you with a smooth and stress-free experience.</p>
+        <p>To confirm and secure your appointment during peak seasons, we require a non-refundable down payment of $20. This deposit serves as confirmation of your booking and is non-refundable in the event of a cancellation.</p>
+        <p>Please follow the link below to make the payment:</p>
+        <p><a href="${payment_link}">Make Payment</a></p>
+        <p>If you have any questions or need further assistance, feel free to reply to this email or contact us at ${contact_info}.</p>
+        <p>Thank you once again for choosing ${senderName}. We look forward to serving you!</p>
+        <p>Best regards,<br>${senderName}</p>
+    </div>
+    `
+
     const customerMailContent = {
-      to: senderEmail,//req.body.email,
-      from: senderEmail,
-      subject: "Customer Booking Appointment Test",
-      text: `Hello ${req.body.firstName}! Thank you for booking a ${req.body.requiredService} with us.`
+      to: req.body.email,
+      from: {
+        name: senderName,
+        address: senderEmail
+      },
+      subject: "Thank you for booking with us!",
+      html: customer_message,
+      cc: senderEmail
     };
 
     // draft an email to be sent to college carry business email internally
     const internalMailContent = {
       to: senderEmail,
-      from: senderEmail,
-      subject: "Internal Booking Notification Test",
-      text: `A customer has booked a ${req.body.requiredService}: \n
-        Name:     ${req.body.firstName} ${req.body.lastName} \n
-        Email:    ${req.body.email} \n
-        Address:  ${req.body.address} \n
-        Property: ${req.body.property} \n
-        Date:     ${req.body.date} \n
-        Time:     ${req.body.time}`
+      from: {
+        name: senderName,
+        address: senderEmail
+      },
+      subject: "Customer Booked Appointment",
+      html: `<h3>A customer has booked a ${req.body.requiredService}:</h3>
+        <ul>
+          <li>Name:&nbsp;${req.body.firstName} ${req.body.lastName}</li>
+          <li>Email:&nbsp;${req.body.email}</li>
+          <li>Address:&nbsp;${req.body.address}</li>
+          <li>Property:&nbsp;${req.body.property}</li>
+          <li>Date:&nbsp;${req.body.date}</li>
+          <li>Time:&nbsp;${req.body.time}</li>
+        </ul>`
     };
 
     // send the email

@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
     form_submit_btn.addEventListener('click', () => {
       // customer email to be sent in POST request
       const contactForm = {
-        firstName: "Jon",
-        lastName: "Doe",
-        email: "simeondunn25@gmail.com",
+        firstName: "Test",
+        lastName: "Dude",
+        email: "simedunn01@gmail.com",
         property: "dorm",
         requiredService: "move-in",
         date: "01/01/2001",
