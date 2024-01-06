@@ -313,6 +313,11 @@ main {
     }
 }
 
+.wrap {
+    font-weight: bold;
+    max-width: 620px
+}
+
 .headline h2 {
     text-transform: uppercase;
     font-style: italic;
@@ -397,6 +402,8 @@ a.normal-btn:hover::before {
     color: #3a86ff;
     /* Text color on hover */
 }
+
+
 
 /* services */
 .services {
@@ -916,6 +923,26 @@ a.normal-btn:hover::before {
     margin-bottom: -17px; /* Add margin-bottom to separate label and textarea */
   }
 
+  .form-container select {
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: rgb(118, 118, 118);
+    background-color: #edf2f4;
+  }
+
+  .form-container #dateTimeInput {
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: rgb(118, 118, 118);
+    background-color: #edf2f4;
+  }
+
   
   .form-container form .no-width input{
     width: unset;
@@ -1028,6 +1055,26 @@ a.normal-btn:hover::before {
     text-decoration: none;
 }
 
+button.normal-btn {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background: #3a86ff;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    padding: 10px 20px;
+    border: 2px solid #3a86ff;
+    transition: 500ms;
+    width: 100%;
+}
+
+button.normal-btn:hover {
+    color: #3a86ff;
+    background: #fff;
+}
+
+
 
 /* Footer */
 footer{
@@ -1113,4 +1160,9 @@ footer .copy{
     textarea {
         width: 300px;
     }
+}
+
+/* for form submission */
+.hidden {
+    display: none;
 }

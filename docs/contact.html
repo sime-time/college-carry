@@ -7,8 +7,8 @@
     <title>Contact Us | College Carry</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon-qnY9bu5K.png">
     <script src="https://kit.fontawesome.com/6a561972d4.js" crossorigin="anonymous"></script>
-  <script type="module" crossorigin src="./assets/script-LvFYZUv4.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/script-qGVofwIq.css">
+  <script type="module" crossorigin src="./assets/script-URFtR3_Z.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/script-tFbyPMnm.css">
 </head>
 
 <body>
@@ -49,8 +49,9 @@
     <main>
         <div class="form-container">
             <div class="container">
-                <div class="title">Reserve a move</div>
-                <form >
+                <h1 class="title">Reserve a move</h1>
+                <p class="wrap">To confirm and secure your appointment during peak seasons, we require a non-refundable down payment of $20. The payment link will be sent to the email indicated below. This deposit serves as confirmation of your booking and is non-refundable in the event of a cancellation. </p>
+                <form id="contact-form">
                     <div>
                         <div>
                             <label for="fname">First Name: <sup>*</sup></label><br>
@@ -68,47 +69,58 @@
                         </div>
                         <div>
                             <label for="phone">Phone: <sup>*</sup></label><br>
-                            <input id="phone" type="tel" placeholder="+000 0000 000" required>
+                            <input id="phone" type="tel" placeholder="(000) 000-0000" required>
                         </div>
                     </div>
                     <div>
                         <div>
-                            <label for="add">Address:</label><br>
-                            <input type="address">
+                            <label for="address">Address: <sup>*</sup></label><br>
+                            <input id="address" type="address" required>
                         </div>
-                        <div>
-                            <label for="serv">Required Service:</label>
-                            <div class="radios">
-                                <div>
-                                    <input type="radio" id="mo" name="mov">
-                                    <label for="mo">Move in</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="mov" name="mov">
-                                    <label for="mov">Move out</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
                         <div>
                             <label>Select One:</label><br>
-                            <select>
+                            <select id="property-type" required>
                                 <option value="dorm">DORM</option>
-                                <option value="apart">APARTMENTS</option>
+                                <option value="apartment">APARTMENTS</option>
                             </select>
-                        </div>
+                        </div>                     
+                    </div>
+                    <div> 
                         <div>
                             <label for="dateTimeInput">Select Date and Time:</label>
                             <br>
-                            <input type="datetime-local" id="dateTimeInput" name="dateTimeInput">
+                            <input type="datetime-local" id="dateTimeInput" name="dateTimeInput" required>
+                        </div>
+                        <div class="radio-container">
+                            <label for="move-service" class="radio-label">Required Service:</label>
+                            <div class="radios">
+                                <label>
+                                    <input type="radio" id="move-in" name="move-service" value="move-in" checked>Move in
+                                </label>
+                                <label>
+                                    <input type="radio" id="move-out" name="move-service" value="move-out">Move out
+                                </label>
+                            </div>
                         </div>
                     </div>
+                    <div class="add-notes">
+                        <label for="additionalNotes">Additional Notes: </label>
+                        <textarea id="additionalNotes" name="additionalNotes" rows="4"></textarea>
+                    </div>
                     <div class="btn-box">
-                        <input type="submit" id="form-submit-btn" class ="normal-btn" value="Book Now"/>
+                        <button type="submit" id="form-submit-btn" class="normal-btn">Book Now</button> 
                     </div>
                 </form>
             </div>
+        </div>
+
+        <!-- New HTML code to be displayed after form submission -->
+        <div id="submission-success-content" class="hidden">
+            <div class="container">
+                <h2>Thank you for submitting the form!</h2>
+                <p>To confirm and secure your appointment during peak seasons, we require a non-refundable down payment of $20. The payment link will be sent to the email submitted in the form. This deposit serves as confirmation of your booking and is non-refundable in the event of a cancellation.</p>
+            </div>
+            
         </div>
     </main>
 

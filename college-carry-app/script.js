@@ -32,19 +32,29 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // API function call
   const apiUrl = 'https://pu5dvbczdc.execute-api.us-east-2.amazonaws.com/dev/email'
-  const form_submit_btn = document.getElementById("form-submit-btn");
-  if (form_submit_btn) {
-    form_submit_btn.addEventListener('click', () => {
+  const contact_form = document.getElementById("contact-form");
+  if (contact_form) {
+    contact_form.addEventListener('submit', (event) => {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // parse the date time values
+      let date_time = document.getElementById('dateTimeInput').value;
+      let selectedDate = date_time.split('T')[0];
+      let selectedTime = date_time.split('T')[1];
+
+
       // customer email to be sent in POST request
-      const contactForm = {
-        firstName: "Test",
-        lastName: "Dude",
-        email: "simedunn01@gmail.com",
-        property: "dorm",
-        requiredService: "move-in",
-        date: "01/01/2001",
-        time: "13:00",
-        address: "1234 Main St."
+      const contactFormValues = {
+        firstName: document.getElementById('fname').value,
+        lastName: document.getElementById('lname').value,
+        email: document.getElementById('mail').value,
+        property: document.getElementById('property-type').value,
+        address: document.getElementById('address').value,
+        requiredService: document.querySelector('input[name="move-service"]:checked').value,
+        date: selectedDate,
+        time: selectedTime,
+        addtionalNotes: document.getElementById('additionalNotes').value
       };
   
       // make POST request that sends emails 
@@ -53,15 +63,24 @@ document.addEventListener('DOMContentLoaded', function() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(contactForm)
+        body: JSON.stringify(contactFormValues)
       })
       .then(response => response.json())
       .then(data => {
         console.log('Response from API:', data);
       })
       .catch(error => console.error('Error:', error));
+
+      // hide the form and show successfully submitted form content 
+      var form_container = document.querySelector('.form-container');
+      var success_content = document.getElementById('submission-success-content')
       
+      form_container.classList.add('hidden');
+      success_content.classList.remove('hidden');
+
+      // log the submission items
       console.log('contact form submitted');
+      console.log(contactFormValues);
     });
   };
 
