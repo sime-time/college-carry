@@ -633,8 +633,9 @@ a.normal-btn:hover::before {
     font-size: 20px;
     font-weight: 900;
 }
-.price{
+.price {
     text-align: center;
+    margin: 15px;
 }
 .price span{
     text-align: center;
