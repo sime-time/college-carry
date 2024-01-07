@@ -82,27 +82,34 @@ app.post('/email', async function(req, res) {
               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           }
 
-          h1 {
+          h2 {
               color: #333;
           }
 
           p {
               color: #555;
           }
+
+          li {
+              color: #555;
+              margin: 10px
+          }
       </style>`
 
     // draft email to be sent internally
     const internal_message = `${email_style}
-    <h2>A customer has booked a ${req.body.requiredService.toUpperCase()}:</h2>
-    <ul>
-      <li>Name:&nbsp;${req.body.firstName} ${req.body.lastName}</li>
-      <li>Email:&nbsp;${req.body.email}</li>
-      <li>Address:&nbsp;${req.body.address}</li>
-      <li>Property:&nbsp;${req.body.property}</li>
-      <li>Date:&nbsp;${req.body.date}</li>
-      <li>Time:&nbsp;${req.body.time}</li>
-      <li>Notes:&nbsp;${req.body.addtionalNotes}</li>
-    </ul>`
+    <div class="container">
+      <h2>A customer has booked a ${req.body.requiredService.toUpperCase()}:</h2>
+      <ul>
+        <li>Name:&nbsp;${req.body.firstName} ${req.body.lastName}</li>
+        <li>Email:&nbsp;${req.body.email}</li>
+        <li>Address:&nbsp;${req.body.address}</li>
+        <li>Property:&nbsp;${req.body.property}</li>
+        <li>Date:&nbsp;${req.body.date}</li>
+        <li>Time:&nbsp;${req.body.time}</li>
+        <li>Notes:&nbsp;${req.body.addtionalNotes}</li>
+      </ul>
+    </div>`
 
     // draft an email to be sent to the customer
     // cc back to sender so they can see what they've sent
@@ -110,7 +117,7 @@ app.post('/email', async function(req, res) {
     const contact_info = '<a href="tel:(260)804-3503"><span>260-804-3503</span></a>'
     const customer_message = `${email_style}
     <div class="container">
-        <h1>Thank You for Booking with Us!</h1>
+        <h2>Thank You for Booking with Us!</h2>
         <p>Dear ${req.body.firstName} ${req.body.lastName},</p>
         <p>We appreciate your trust in ${senderName} for your upcoming move. We are excited to assist you with a smooth and stress-free experience.</p>
         <p>To confirm and secure your appointment during peak seasons, we require a non-refundable down payment of $20. This deposit serves as confirmation of your booking and is non-refundable in the event of a cancellation.</p>
