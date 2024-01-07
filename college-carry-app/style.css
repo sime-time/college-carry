@@ -201,6 +201,10 @@ nav a {
     color: #fff;
     font-weight: 500;
     position: relative;
+    text-shadow: -0.5px -0.5px 0 #3a86ff, /* Top-left shadow */
+    0.5px -0.5px 0 #3a86ff, /* Top-right shadow */
+   -0.5px  0.5px 0 #3a86ff, /* Bottom-left shadow */
+   0.5px  0.5px 0 #3a86ff; /* Bottom-right shadow */;
 }
 
 nav a.active::before {
@@ -496,6 +500,7 @@ a.normal-btn:hover::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 
 .what .container>div {
@@ -511,6 +516,8 @@ a.normal-btn:hover::before {
     scale: 0.98;
     cursor: pointer;
     transition: 250ms;
+    min-height: 350px;
+    min-width: 350px;
 }
 
 .what .container>div:hover {
@@ -522,11 +529,20 @@ a.normal-btn:hover::before {
     background-color: #fff;
     color: #3a86ff;
     padding: 20px 24px;
-    border-radius: 50%;
+    border-radius: 100%;
 }
 
 .what .icon i {
     font-size: 24px;
+}
+
+.what li {
+    margin: 10px;
+    max-width: 300px;
+}
+
+.border-debug {
+    border: 2px dashed red;
 }
 
 /* Portfolio */
@@ -585,6 +601,7 @@ a.normal-btn:hover::before {
 .flex-container{
     display: flex;
     justify-content: space-around;
+    flex-direction: row;
 }
 .flex-card{
     background: #3a86ff;
@@ -1159,6 +1176,23 @@ footer .copy{
 
     textarea {
         width: 300px;
+    }
+
+    .portfolio .images {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+    .portfolio .images img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .flex-container{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
     }
 }
 
