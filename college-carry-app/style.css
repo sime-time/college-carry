@@ -201,10 +201,7 @@ nav a {
     color: #fff;
     font-weight: 500;
     position: relative;
-    text-shadow: -0.5px -0.5px 0 #3a86ff, /* Top-left shadow */
-    0.5px -0.5px 0 #3a86ff, /* Top-right shadow */
-   -0.5px  0.5px 0 #3a86ff, /* Bottom-left shadow */
-   0.5px  0.5px 0 #3a86ff; /* Bottom-right shadow */;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
 nav a.active::before {
