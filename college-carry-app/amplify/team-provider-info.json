@@ -15,7 +15,7 @@
       "function": {
         "collegecarrylambdafunc": {
           "deploymentBucketName": "amplify-collegecarryapp-dev-122916-deployment",
-          "s3Key": "amplify-builds/collegecarrylambdafunc-536c66326a774a69554e-build.zip"
+          "s3Key": "amplify-builds/collegecarrylambdafunc-3548616e517a776f4f53-build.zip"
         }
       },
       "api": {

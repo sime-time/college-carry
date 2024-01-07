@@ -64,35 +64,51 @@ app.post('/email', async function(req, res) {
       }
     }); 
 
+    // use uniform style sheet for emails
+    const email_style = `
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              margin: 0;
+              padding: 0;
+              background-color: #f4f4f4;
+          }
+
+          .container {
+              max-width: 600px;
+              margin: 20px auto;
+              padding: 20px;
+              background-color: #fff;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+
+          h1 {
+              color: #333;
+          }
+
+          p {
+              color: #555;
+          }
+      </style>`
+
+    // draft email to be sent internally
+    const internal_message = `${email_style}
+    <h2>A customer has booked a ${req.body.requiredService.toUpperCase()}:</h2>
+    <ul>
+      <li>Name:&nbsp;${req.body.firstName} ${req.body.lastName}</li>
+      <li>Email:&nbsp;${req.body.email}</li>
+      <li>Address:&nbsp;${req.body.address}</li>
+      <li>Property:&nbsp;${req.body.property}</li>
+      <li>Date:&nbsp;${req.body.date}</li>
+      <li>Time:&nbsp;${req.body.time}</li>
+      <li>Notes:&nbsp;${req.body.addtionalNotes}</li>
+    </ul>`
+
     // draft an email to be sent to the customer
     // cc back to sender so they can see what they've sent
     const payment_link = "https://buy.stripe.com/6oEcOr8K10cM1IkfZ0"
     const contact_info = '<a href="tel:(260)804-3503"><span>260-804-3503</span></a>'
-    const customer_message = `
-      <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        p {
-            color: #555;
-        }
-    </style>
+    const customer_message = `${email_style}
     <div class="container">
         <h1>Thank You for Booking with Us!</h1>
         <p>Dear ${req.body.firstName} ${req.body.lastName},</p>
@@ -125,15 +141,7 @@ app.post('/email', async function(req, res) {
         address: senderEmail
       },
       subject: "Customer Booked Appointment",
-      html: `<h3>A customer has booked a ${req.body.requiredService}:</h3>
-        <ul>
-          <li>Name:&nbsp;${req.body.firstName} ${req.body.lastName}</li>
-          <li>Email:&nbsp;${req.body.email}</li>
-          <li>Address:&nbsp;${req.body.address}</li>
-          <li>Property:&nbsp;${req.body.property}</li>
-          <li>Date:&nbsp;${req.body.date}</li>
-          <li>Time:&nbsp;${req.body.time}</li>
-        </ul>`
+      html: internal_message
     };
 
     // send the email
