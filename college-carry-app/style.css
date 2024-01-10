@@ -643,6 +643,7 @@ a.normal-btn:hover::before {
     background-color: #fff;
     color: #3a86ff;
     border-radius: 12px;
+    padding: 10px;
 }
 .flex-card h3{
     text-align: center;
@@ -680,7 +681,8 @@ a.normal-btn:hover::before {
 }
 .flex-card-storage h1{
     text-align: center;
-    margin-top: 7px;
+    margin-top: 5px;
+    padding: 10px;
     margin-bottom: 20px;
     border: 2px solid #fff;
     background-color: #fff;
