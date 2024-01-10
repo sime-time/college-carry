@@ -610,6 +610,9 @@ a.normal-btn:hover::before {
     display: block;
 }
 /* pricing */
+.price-board {
+    margin-bottom: 50px;
+}
 .price-board .title{
     text-align: center;
 }
@@ -889,6 +892,7 @@ a.normal-btn:hover::before {
     text-align: center;
     margin: 15px;
     border-bottom: none;
+    padding-top: 12px;
   }
   .invoice-total span{
     text-align: center;
