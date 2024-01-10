@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,700;1,900&display=swap');
 
+:root {
+    --college-carry-color: #3a86ff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -629,7 +633,8 @@ a.normal-btn:hover::before {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 350px;
+    width: 400px;
+    font-size: 18px;
 }
 .flex-card h1{
     text-align: center;
@@ -649,11 +654,84 @@ a.normal-btn:hover::before {
 .flex-card p{
     text-align: center;
 }
+.flex-card div {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
 .flex-card i{
     color: #05df13;
     font-size: 20px;
     font-weight: 900;
 }
+.flex-card-storage{
+    background: #3a86ff;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 400px;
+    font-size: 18px;
+}
+.flex-card-storage h1{
+    text-align: center;
+    margin-top: 7px;
+    margin-bottom: 20px;
+    border: 2px solid #fff;
+    background-color: #fff;
+    color: var(--college-carry-color);
+}
+.flex-card-storage div {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.flex-card-storage i{
+    color: #05df13;
+    font-size: 20px;
+    font-weight: 900;
+}
+.flex-card-storage .caveat i{
+    color: #fff;
+    font-size: inherit;
+    font-weight: inherit;
+}
+.caveat {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.flex-card-storage a{
+    color: #fff
+}
+.icons-contact-options {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    
+}
+.flex-card-storage .icons-contact-options i{
+    color: #fff;
+    font-size: 40px;
+    font-weight: 900;
+    background:  var(--college-carry-color);
+    border-radius: 50%; /* Add this line for the circular shape */
+    padding: 20px;
+    transition: 500ms;
+    border: 3px solid #fff;
+}
+
+.flex-card-storage .icons-contact-options i:hover{
+    color: var(--college-carry-color);
+    font-size: 40px;
+    font-weight: 900;
+    background: #fff;
+    border-radius: 50%; /* Add this line for the circular shape */
+    padding: 20px;
+    
+}
+
+
 .price {
     text-align: center;
     margin: 15px;
@@ -862,6 +940,10 @@ a.normal-btn:hover::before {
   }
   .byhour h3{
     color: #3a86ff;
+  }
+
+  .misc .flex-1 {
+    width: 400px;
   }
   .misc .flex-container{
     justify-content: center;
@@ -1196,6 +1278,17 @@ footer .copy{
         gap: 20px;
     }
 
+    .flex-card {
+        width: 350px;
+    }
+
+    .flex-card-storage {
+        width: 350px;
+    }
+    .misc .flex-1 {
+        width: 350px;
+    }
+
     .form-container{
         display: block;
     }
@@ -1232,23 +1325,4 @@ footer .copy{
 /* for form submission */
 .hidden {
     display: none;
-}
-
-/* for summer storage information */
-
-.caveat {
-    
-}
-.icons-contact-options {
-
-}
-.flex-card-storage{
-    background: #3a86ff;
-    color: #fff;
-    padding: 20px 30px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 350px;
 }
