@@ -653,6 +653,8 @@ a.normal-btn:hover::before {
 }
 .flex-card p{
     text-align: center;
+    font-style: italic;
+
 }
 .flex-card div {
     padding-top: 3px;
