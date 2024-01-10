@@ -270,6 +270,24 @@ main {
 
 .flex-1 {
     flex: 0.8;
+    
+}
+
+.flex-1 h4 {
+    width: 60%;
+}
+
+.price {
+    text-align: center;
+    margin: 15px;
+}
+.price span{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+}
+.price span:last-child{
+    color: #05df13;
 }
 
 .flex-2 {
@@ -863,9 +881,22 @@ a.normal-btn:hover::before {
     padding: 10px 20px;
     border: 2px solid #3a86ff;
   }
-  .tabes >div{
+  .tabes > div{
     border-bottom: 2px solid #3a86ff;
     padding-bottom: 5px;
+  }
+  .tabes > div.invoice-total {
+    text-align: center;
+    margin: 15px;
+    border-bottom: none;
+  }
+  .invoice-total span{
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+  }
+  .invoice-total span:last-child{
+    color: #05df13;
   }
   .form-container{
     margin: 40px 0;
@@ -1197,4 +1228,23 @@ footer .copy{
 /* for form submission */
 .hidden {
     display: none;
+}
+
+/* for summer storage information */
+
+.caveat {
+    
+}
+.icons-contact-options {
+
+}
+.flex-card-storage{
+    background: #3a86ff;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 350px;
 }
