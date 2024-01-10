@@ -642,6 +642,7 @@ a.normal-btn:hover::before {
     border: 2px solid #fff;
     background-color: #fff;
     color: #3a86ff;
+    border-radius: 12px;
 }
 .flex-card h3{
     text-align: center;
@@ -650,6 +651,7 @@ a.normal-btn:hover::before {
     background: #fff;
     color: #3a86ff;
     padding: 5px;
+    
 }
 .flex-card p{
     text-align: center;
@@ -683,6 +685,7 @@ a.normal-btn:hover::before {
     border: 2px solid #fff;
     background-color: #fff;
     color: var(--college-carry-color);
+    border-radius: 12px;
 }
 .flex-card-storage div {
     padding-top: 3px;
@@ -925,7 +928,6 @@ a.normal-btn:hover::before {
   .byhour{
     margin: 40px 0;
     color: #fff;
-    background-image: url('../images/slides/javygo-ZdySMOIicMo-unsplash.jpg');
     height: 60vh;
     background-position: center;
     background-size: cover;
