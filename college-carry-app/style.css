@@ -682,7 +682,8 @@ a.normal-btn:hover::before {
 .flex-card-storage h1{
     text-align: center;
     margin-top: 5px;
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin-bottom: 20px;
     border: 2px solid #fff;
     background-color: #fff;
