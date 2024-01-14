@@ -1008,9 +1008,13 @@ a.normal-btn:hover::before {
 
   .form-container form input{
     width: 300px;
-    padding: 10px 10px;
-    border-radius: 10px;
     font-family: inherit;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: rgb(118, 118, 118);
     background-color: #edf2f4;
   }
 
@@ -1073,7 +1077,7 @@ a.normal-btn:hover::before {
   }
 
   .form-container #dateTimeInput {
-    padding: 10px 10px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     border-width: 2px;
