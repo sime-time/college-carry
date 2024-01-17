@@ -1337,6 +1337,9 @@ footer .copy{
     }
 }
 
+#submission-success-content {
+    height: 80vh;
+}
 /* for form submission */
 .hidden {
     display: none;
