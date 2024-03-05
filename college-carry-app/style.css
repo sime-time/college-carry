@@ -22,8 +22,12 @@ a {
 
 .container {
     max-width: 1200px;
-    padding: 10px 30px;
+    padding: 10px;
     margin: 0 auto;
+}
+
+.container.storage-pricing {
+    margin-top: 35px;
 }
 
 ::-webkit-scrollbar {
@@ -950,6 +954,10 @@ a.normal-btn:hover::before {
 
   .misc .flex-1 {
     width: 400px;
+    
+  }
+  .flex-table {
+    width: 100%;
   }
   .misc .flex-container{
     justify-content: center;
@@ -982,6 +990,24 @@ a.normal-btn:hover::before {
     border-bottom: none;
     padding-top: 12px;
   }
+  .storage-table {
+    width: 100%;
+  }
+  .storage table{
+    border: 2px solid #3a86ff;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .storage tr {
+    text-align: left;
+  }
+
+  .storage tr:nth-child(even){background-color: #e0dbdb;}
+
+  .storage td, .storage th {
+    padding: 8px;
+  }
+
   .invoice-total span{
     text-align: center;
     font-size: 22px;
@@ -1294,14 +1320,14 @@ footer .copy{
     }
 
     .flex-card {
-        width: 350px;
+        width: 100%;
     }
 
     .flex-card-storage {
-        width: 350px;
+        width: 100%;
     }
     .misc .flex-1 {
-        width: 350px;
+        width: 100%;
     }
 
     .form-container{
