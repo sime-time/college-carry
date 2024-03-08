@@ -147,7 +147,7 @@ app.post('/email', async function(req, res) {
         name: senderName,
         address: senderEmail
       },
-      subject: "Customer Booked Appointment",
+      subject: `${req.body.requiredService.toUpperCase()}: Customer Booked Appointment`,
       html: internal_message
     };
 
