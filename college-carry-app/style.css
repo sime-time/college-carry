@@ -300,6 +300,13 @@ main {
     color: #05df13;
 }
 
+.item-price {
+    border: none; 
+    background: none;
+    color: darkgreen;
+    font-size: 18px;
+}
+
 .calc-total {
     text-align: center;
     font-size: 22px;
