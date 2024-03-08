@@ -300,6 +300,15 @@ main {
     color: #05df13;
 }
 
+.calc-total {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+}
+.calc-total span:last-child{
+    color: #05df13;
+}
+
 .flex-2 {
     flex: 1;
 }
@@ -543,6 +552,7 @@ a.normal-btn:hover::before {
     transition: 250ms;
     min-height: 350px;
     min-width: 350px;
+    width: 100%;
 }
 
 .what .container>div:hover {

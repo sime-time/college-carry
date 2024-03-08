@@ -6,7 +6,7 @@ Amplify.configure(amplifyconfig);
 
 document.addEventListener('DOMContentLoaded', function() {
 
-  // body-overlay fade out
+  // Body-overlay fade out
   const body_overlay = document.querySelector(".body-overlay");
   body_overlay.addEventListener("animationend", () => {
     body_overlay.classList.add('animation-complete')
@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const bars = document.querySelector('.bars i');
   const cross = document.querySelector('.fa-x');
   const nav = document.querySelector('nav');
-
   bars.addEventListener('click', () => {
     nav.style.left = '0px';
     console.log('nav')
@@ -84,44 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   };
 
-
-  // "Our Portfolio" Tab Selection -> Image Changes
-  const portfolio = document.querySelector(".portfolio");
-  if (portfolio) {
-    function showContent(tabId) {
-      const tabs = document.querySelectorAll('.tab');
-      const allContents = document.querySelectorAll('.content');
-      allContents.forEach(content => {
-        content.classList.remove('active-content');
-      });
-      tabs.forEach(tab => {
-        tab.classList.remove('active');
-      })
-  
-      const selectedTabes = document.getElementById(`${tabId}`);
-      if (selectedTabes) {
-        selectedTabes.classList.add('active');
-      }
-      const selectedTab = document.getElementById(`content-${tabId}`);
-      if (selectedTab) {
-        selectedTab.classList.add('active-content');
-      }
-    };
-  
-    document.getElementById('tab1').addEventListener('click', function() {
-      showContent('tab1') 
-    });
-  
-    document.getElementById('tab2').addEventListener('click', function() {
-      showContent('tab2') 
-    });
-  
-    document.getElementById('tab3').addEventListener('click', function() {
-      showContent('tab3') 
-    });
-  };
-
-
   // Home Page Image Slider
   const slide_container = document.querySelector(".slide-container");
   if (slide_container) {
@@ -147,6 +108,5 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(nextSlide, 5000); // Change slide every 5 seconds
     showSlide(currentIndex);
   };
-  
-});
 
+}); // end DOMContentLoaded
