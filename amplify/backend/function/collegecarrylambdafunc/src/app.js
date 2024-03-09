@@ -103,6 +103,7 @@ app.post('/email', async function(req, res) {
       <ul>
         <li>Name:&nbsp;${req.body.firstName} ${req.body.lastName}</li>
         <li>Email:&nbsp;${req.body.email}</li>
+        <li>Phone:&nbsp;${req.body.phone}</li>
         <li>Address:&nbsp;${req.body.address}</li>
         <li>Property:&nbsp;${req.body.property}</li>
         <li>Date:&nbsp;${req.body.date}</li>

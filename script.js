@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         firstName: document.getElementById('fname').value,
         lastName: document.getElementById('lname').value,
         email: document.getElementById('mail').value,
+        phone: document.getElementById('phone').value,
         property: document.getElementById('property-type').value,
         address: document.getElementById('address').value,
         requiredService: document.querySelector('input[name="move-service"]:checked').value,
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         time: selectedTime,
         addtionalNotes: document.getElementById('additionalNotes').value
       };
-  
+      
       // make POST request that sends emails 
       fetch(apiUrl, {
         method: 'POST',
