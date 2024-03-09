@@ -852,17 +852,11 @@ a.normal-btn:hover::before {
   .slider__nav:checked:nth-of-type(3) ~ .slider__inner {
     left: -200%;
   }
-  .slider__nav:checked:nth-of-type(4) ~ .slider__inner {
-    left: -300%;
-  }
-  .slider__nav:checked:nth-of-type(5) ~ .slider__inner {
-    left: -400%;
-  }
   .slider__inner {
     position: absolute;
     top: 80px;
     left: 0;
-    width: 500%;
+    width: 300%;
     height: auto;
     -webkit-transition: left 0.4s;
     transition: left 0.4s;
