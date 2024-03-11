@@ -306,9 +306,10 @@ main {
 
 
 .calc-total {
-    text-align: center;
-    font-size: 22px;
+    text-align: left;
+    font-size: 32px;
     font-weight: 700;
+    color: var(--college-carry-color)
 }
 .calc-total span:last-child{
     color: #05df13;
@@ -342,16 +343,52 @@ main {
     flex-direction: column;
 }
 .add-item-button {
-    
+    font-size: 18px;        
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-style: inset;
+    border-radius: 10px;   
+    justify-items: center;
+    color: black;
+    background: #e9e7e7;
+    border-color: black;
+    width: 100%;
+}
+.add-item-button:hover {
+    color: var(--college-carry-color);
+    border-color: var(--college-carry-color);
+    cursor: pointer;
+}
+
+.add-item-button span {
+    color: darkgreen;
 }
 
 .item-price {
     border: none; 
-    background: none;
-    color: darkgreen;
+    background: transparent;
     font-size: 18px;
-    width: auto;
-    align-content: center;
+    outline: none;
+    color: inherit; 
+    z-index: 0;
+}   
+
+.invoice-item {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.invoice-item:first-child {
+    flex: 1;
+}
+
+.invoice-item-price {
+    border: none; 
+    background: transparent;
+    font-size: 18px;
+    outline: none;
+    color: inherit; 
 }
 
 
@@ -1420,6 +1457,10 @@ footer .copy{
     .flex-container{
         display: flex;
         justify-content: space-around;
+        flex-direction: column;
+    }
+
+    .container.storage-pricing {
         flex-direction: column;
     }
 }

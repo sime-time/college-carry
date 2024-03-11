@@ -351,17 +351,62 @@
         <div class="price-board">
             <div class="title">Storage Pricing Calculator</div>
             <div class="container storage-pricing">
-                <form class="price-form">
+                <div class="price-form">
                     <div id="add-item-input">
-                        <!-- generate HTML function -->
+                        <label for="items">Item:</label>
+                        <select name="items" id="itemSelect" onchange="updateSizes()">
+                            <option value="" disabled selected hidden>Item</option>
+                            <option value="box">CollegeCarry Box</option>
+                            <option value="fridge">Fridge</option>
+                            <option value="rug">Carpet/Rug</option>
+                            <option value="suitcase">Suitcase/Duffel</option>
+                            <option value="trunk">Trunk</option>
+                            <option value="television">Television</option>
+                            <option value="desk">Desk</option>
+                            <option value="chair">Chair</option>
+                            <option value="futon">Futon</option>
+                            <option value="couch">Couch</option>
+                            <option value="dresser">Dresser</option>
+                            <option value="nightstand">Nightstand</option>
+                            <option value="mirror">Mirror</option>
+                            <option value="mattress">Mattress</option>
+                            <option value="box-spring">Box Spring</option>
+                            <option value="bed-frame">Bed Frame</option>
+                            <option value="microwave">Microwave</option>
+                            <option value="plastic-bin">Plastic Storage Bin</option>
+                            <option value="bicycle">Bicycle</option>
+                            <option value="lamp">Lamp</option>
+                        </select>
+
+                        <label for="sizes">Size:</label>
+                        <select name="sizes" id="sizeSelect" onchange="updatePrice()" disabled>
+                            <option value="" disabled selected hidden>Size</option>
+                            <!-- dynamically changed by the item selected -->
+                        </select>
+
+                        <label for="quantity">Quantity:</label>
+                        <input name="quantity" class="number-input" type="number" id="quantity" min="1" max="99" step="1" value="1" onchange="updatePrice()"></input> 
+
+                        
+                        <div id="btn-container">
+                            <button id="addItemButton" class="add-item-button" onclick="addItemToList()" disabled>
+                                Add Item + Price: <span>$<output id="itemPrice" class="item-price">0</output></span>
+                            </button>
+                        </div>
                     </div>
                     
-                </form>
+                </div>
 
                 <div class="price-form-result">
-                    <div class="calc-total">
-                        <span>Total:</span> <span id="total-price"></span>
+                    <h1 class="calc-total">
+                        Total: <span id="total-price">$0</span>
+                    </h1>
+                    <div class="btn-container">
+                        <a href="./contact.html" class="">Book Now</a>
                     </div>
+                    <ul id="invoice-item-list">
+                        <!-- Generate HTML list items here -->
+                    </ul>
                 </div>
                 
             </div>
@@ -406,8 +451,9 @@
     };
 
     function updateSizes(id_count) {
-        var itemSelect = document.getElementById(`itemSelect-${id_count}`);
-        var sizeSelect = document.getElementById(`sizeSelect-${id_count}`);
+        var itemSelect = document.getElementById("itemSelect");
+        var sizeSelect = document.getElementById("sizeSelect");
+        var addItemButton = document.getElementById("addItemButton")
         var item = itemSelect.value;
 
         // clear existing options 
@@ -415,6 +461,9 @@
 
         // enable the size select 
         sizeSelect.disabled = false; 
+
+        // enable the button
+        addItemButton.disabled = false;
 
 
         // populate size options based on item selected 
@@ -426,9 +475,9 @@
     }
 
     function updatePrice(id_count) {
-        var quantity = document.getElementById(`quantity-${id_count}`).value;
-        var item = document.getElementById(`itemSelect-${id_count}`).value; 
-        var size = document.getElementById(`sizeSelect-${id_count}`).options[document.getElementById(`sizeSelect-${id_count}`).selectedIndex].text;
+        var quantity = document.getElementById("quantity").value;
+        var item = document.getElementById("itemSelect").value; 
+        var size = document.getElementById("sizeSelect").options[document.getElementById("sizeSelect").selectedIndex].text;
         var price = 0.0; 
 
         // match the size to the price 
@@ -438,109 +487,116 @@
             }
         });
 
-        var itemPrice = document.getElementById(`price-${id_count}`);
+        var itemPrice = document.getElementById(`itemPrice`);
         itemPrice.value = price * Number(quantity);
-
-        updateTotal();
     }
 
     function updateTotal() {
-        // sum the prices of all items together 
+        // sum the prices of all items together
         let sum = 0; 
-        for (let id = 0; id <= counter; id++) {
-            if (document.getElementById(`price-${id}`)) {
-                let price = document.getElementById(`price-${id}`).value;
-                console.log(price);
-                sum += Number(price);
-            }
-        }
+
+        // Get all the elements with the class 'invoice-item'
+        var invoiceItems = document.querySelectorAll('.invoice-item-price');
+
+        // iterate over all invoice items 
+        invoiceItems.forEach(function(item) {
+            var price = parseFloat(item.value);
+            sum += price;
+        });
 
         // update the total price
         let total = document.getElementById("total-price");
         total.innerHTML = `$${sum}`;
     }
 
-    // counter for ID
+    // counter for each item created 
     var counter = 0
 
-    // Replace the default HTML with the generated HTML on load
-    document.addEventListener("DOMContentLoaded", function() {
-        var container = document.getElementById("add-item-input");
-        container.innerHTML = generateAddItemHTML();
-        // Attach event listeners after adding the dynamic HTML
-        const current_cnt = counter
-        container.querySelector(`#itemSelect-${current_cnt}`).addEventListener('change', function() {updateSizes(current_cnt)});
-        container.querySelector(`#sizeSelect-${current_cnt}`).addEventListener('change', function() {updatePrice(current_cnt)});
-        container.querySelector(`#quantity-${current_cnt}`).addEventListener('change', function() {updatePrice(current_cnt)});
-    });
-
-    function generateAddItemHTML() {
+    function generateAddItemHTML(item, size, quantity, price) {
         counter++; 
-        const itemId = 'itemSelect-' + counter; 
-        const sizeId = 'sizeSelect-' + counter; 
-        const quantityId = 'quantity-' + counter;
-        const priceId = 'price-' + counter;
 
         return `
-        <label for="items">Item:</label>
-        <select name="items" id="${itemId}">
-            <option value="" disabled selected hidden>Item</option>
-            <option value="box">CollegeCarry Box</option>
-            <option value="fridge">Fridge</option>
-            <option value="rug">Carpet/Rug</option>
-            <option value="suitcase">Suitcase/Duffel</option>
-            <option value="trunk">Trunk</option>
-            <option value="television">Television</option>
-            <option value="desk">Desk</option>
-            <option value="chair">Chair</option>
-            <option value="futon">Futon</option>
-            <option value="couch">Couch</option>
-            <option value="dresser">Dresser</option>
-            <option value="nightstand">Nightstand</option>
-            <option value="mirror">Mirror</option>
-            <option value="mattress">Mattress</option>
-            <option value="box-spring">Box Spring</option>
-            <option value="bed-frame">Bed Frame</option>
-            <option value="microwave">Microwave</option>
-            <option value="plastic-bin">Plastic Storage Bin</option>
-            <option value="bicycle">Bicycle</option>
-            <option value="lamp">Lamp</option>
-        </select>
-
-        <label for="sizes">Size:</label>
-        <select name="sizes" id="${sizeId}" disabled>
-            <!-- dynamically changed by the item selected -->
-            <option value="" disabled selected hidden>Size</option>
-        </select>
-
-        <label for="quantity">Quantity:</label>
-        <input name="quantity" class="number-input" type="number" id="${quantityId}" min="1" max="99" step="1" value="1"></input> 
-
-        
-        <div id="button-container">
-            <button id="addItemButton" class="add-item-button">
-                Add Item (<span>Price:</span> <input id="${priceId}" class="item-price" placeholder="0" disabled readonly>)   
-            </button>
-        </div>
+        <li class="invoice-item">
+            <div>
+                <div>Item</div>
+                <div>${item}, ${size}</div>
+            </div>
+            <div>
+                <div>Quantity</div>
+                <div>${quantity}</div>
+            </div>
+            <div>
+                <div>Price</div>
+                <span>$<output class="invoice-item-price">${price}</output></span>
+            </div>
+            <button class="delete-item">Delete</button>
+        </li>
         `
     }
 
-    /*
-    document.getElementById("addItemButton").addEventListener("click", function() {
-        // Create a new div element
-        var newDiv = document.createElement("div");
-        // Set some attributes for the div (you can add more if needed)
-        newDiv.className = "class";
-        // Set the content of the div
-        newDiv.innerHTML = generateAddItemHTML();
-        // Insert the new div before the button
-        document.getElementById("button-container").parentNode.insertBefore(newDiv, document.getElementById("button-container"));
+    function addItemToList() {
+        // Take the item name, size, quantity and price 
+        var quantity = document.getElementById("quantity").value;
+        var item = document.getElementById("itemSelect").value; 
+        var size = document.getElementById("sizeSelect").options[document.getElementById("sizeSelect").selectedIndex].text;
+        var price = document.getElementById("itemPrice").value; 
 
-        // Attach event listeners after adding the dynamic HTML
-        const current_cnt = counter
-        newDiv.querySelector(`#itemSelect-${current_cnt}`).addEventListener('change', function() {updateSizes(current_cnt)});
-        newDiv.querySelector(`#sizeSelect-${current_cnt}`).addEventListener('change', function() {updatePrice(current_cnt)});
-        newDiv.querySelector(`#quantity-${current_cnt}`).addEventListener('change', function() {updatePrice(current_cnt)});
-    });*/
+        // Generate a new list item with the data above
+        var listItem = document.createElement("li");
+        listItem.className = "invoice-item";
+        listItem.innerHTML = generateAddItemHTML(item, size, quantity, price);
+
+        // Get the ul parent node 
+        var invoiceList = document.getElementById("invoice-item-list")
+
+        // Insert the new list item at the top of the list
+        invoiceList.insertBefore(listItem, invoiceList.firstChild);
+
+        // Clear the item selection options
+        clearItemForm(); 
+
+        updateDeleteButtons();
+
+        updateTotal();
+    }
+
+    function clearItemForm() {
+        // select first item in itemSelect
+        var itemSelect = document.getElementById("itemSelect");
+        itemSelect.selectedIndex = 0;
+
+        // disable sizeSelect 
+        var sizeSelect = document.getElementById("sizeSelect");
+        sizeSelect.innerHTML = `<option value="" disabled selected hidden>Size</option>`;
+        sizeSelect.disabled = true;
+
+        // set quantity to 1 
+        var quantityInput = document.getElementById("quantity"); 
+        quantityInput.value = 1;
+
+        // set price to 0
+        var price = document.getElementById("itemPrice");
+        price.value = 0;
+
+        // disable addItemButton 
+        var addItemButton = document.getElementById("addItemButton");
+        addItemButton.disabled = true;
+    }
+
+    function updateDeleteButtons() {
+        // Get all delete buttons
+        var deleteButtons = document.querySelectorAll('.delete-item');
+
+        // Loop through each delete button
+        deleteButtons.forEach(function(button) {
+            // Add click event listener to each delete button
+            button.addEventListener('click', function() {
+                // Remove the grandparent, list item, when the delete button is clicked
+                button.parentNode.parentNode.remove();
+                updateTotal();
+            });
+        });
+
+    }
 </script>
 </html>
