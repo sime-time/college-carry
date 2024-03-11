@@ -27,7 +27,8 @@ a {
 }
 
 .container.storage-pricing {
-    margin-top: 35px;
+    display: flex;
+    flex-direction: row;
 }
 
 ::-webkit-scrollbar {
@@ -287,6 +288,8 @@ main {
     width: 60%;
 }
 
+/* PRICING CALCULATOR */
+
 .price {
     text-align: center;
     margin: 15px;
@@ -300,12 +303,7 @@ main {
     color: #05df13;
 }
 
-.item-price {
-    border: none; 
-    background: none;
-    color: darkgreen;
-    font-size: 18px;
-}
+
 
 .calc-total {
     text-align: center;
@@ -315,6 +313,49 @@ main {
 .calc-total span:last-child{
     color: #05df13;
 }
+.price-form {
+    display: flex;
+}
+
+.price-form select {
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: rgb(118, 118, 118);
+    background-color: #edf2f4;
+}
+
+.price-form .number-input {
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: rgb(118, 118, 118);
+    background-color: #edf2f4;
+}
+
+#add-item-input {
+    display: flex;  
+    flex-direction: column;
+}
+.add-item-button {
+    
+}
+
+.item-price {
+    border: none; 
+    background: none;
+    color: darkgreen;
+    font-size: 18px;
+    width: auto;
+    align-content: center;
+}
+
+
+
 
 .flex-2 {
     flex: 1;

@@ -348,19 +348,22 @@
         </div>
 
         <!-- PRICE CALCULATOR -->
-        <div id="price-calculator" class="price-board">
+        <div class="price-board">
             <div class="title">Storage Pricing Calculator</div>
-            <div class="container">
+            <div class="container storage-pricing">
+                <form class="price-form">
+                    <div id="add-item-input">
+                        <!-- generate HTML function -->
+                    </div>
+                    
+                </form>
+
+                <div class="price-form-result">
+                    <div class="calc-total">
+                        <span>Total:</span> <span id="total-price"></span>
+                    </div>
+                </div>
                 
-                <div id="item-calc-container">
-                    <!-- generate HTML function -->
-                </div>
-                <div id="button-container">
-                    <button id="addItemButton">Add Item</button>
-                </div>
-                <div class="calc-total">
-                    <span>Total:</span> <span id="total-price"></span>
-                </div>
             </div>
         </div>
 
@@ -410,6 +413,10 @@
         // clear existing options 
         sizeSelect.innerHTML = "";
 
+        // enable the size select 
+        sizeSelect.disabled = false; 
+
+
         // populate size options based on item selected 
         sizePriceMap[item].forEach(size => {
             sizeSelect.innerHTML += `<option value="${size[0]}">${size[0]}</option>`;
@@ -458,7 +465,7 @@
 
     // Replace the default HTML with the generated HTML on load
     document.addEventListener("DOMContentLoaded", function() {
-        var container = document.getElementById("item-calc-container");
+        var container = document.getElementById("add-item-input");
         container.innerHTML = generateAddItemHTML();
         // Attach event listeners after adding the dynamic HTML
         const current_cnt = counter
@@ -477,7 +484,7 @@
         return `
         <label for="items">Item:</label>
         <select name="items" id="${itemId}">
-            <option value="" disabled selected hidden>Please Choose...</option>
+            <option value="" disabled selected hidden>Item</option>
             <option value="box">CollegeCarry Box</option>
             <option value="fridge">Fridge</option>
             <option value="rug">Carpet/Rug</option>
@@ -501,18 +508,24 @@
         </select>
 
         <label for="sizes">Size:</label>
-        <select name="sizes" id="${sizeId}"">
+        <select name="sizes" id="${sizeId}" disabled>
             <!-- dynamically changed by the item selected -->
-            <option value="" disabled selected hidden>Select Item first...</option>
+            <option value="" disabled selected hidden>Size</option>
         </select>
 
         <label for="quantity">Quantity:</label>
-        <input name="quantity" type="number" id="${quantityId}" min="1" max="99" step="1" value="1"></input> 
+        <input name="quantity" class="number-input" type="number" id="${quantityId}" min="1" max="99" step="1" value="1"></input> 
 
-        <span>Price:</span> <input id="${priceId}" class="item-price" placeholder="0" readonly>
+        
+        <div id="button-container">
+            <button id="addItemButton" class="add-item-button">
+                Add Item (<span>Price:</span> <input id="${priceId}" class="item-price" placeholder="0" disabled readonly>)   
+            </button>
+        </div>
         `
     }
 
+    /*
     document.getElementById("addItemButton").addEventListener("click", function() {
         // Create a new div element
         var newDiv = document.createElement("div");
@@ -528,6 +541,6 @@
         newDiv.querySelector(`#itemSelect-${current_cnt}`).addEventListener('change', function() {updateSizes(current_cnt)});
         newDiv.querySelector(`#sizeSelect-${current_cnt}`).addEventListener('change', function() {updatePrice(current_cnt)});
         newDiv.querySelector(`#quantity-${current_cnt}`).addEventListener('change', function() {updatePrice(current_cnt)});
-    });
+    });*/
 </script>
 </html>
