@@ -509,16 +509,11 @@
         total.innerHTML = `$${sum}`;
     }
 
-    // counter for each item created 
-    var counter = 0
-
     function generateAddItemHTML(item, size, quantity, price) {
-        counter++; 
-
         return `
         <div class="invoice-description">
             <div class="invoice-sub-heading">Item</div>
-            <div class="invoice-item-size">${item}, ${size}</div>
+            <div class="invoice-item-size">${item} ${size}</div>
         </div>
         <div class="invoice-item-data">
             <div class="invoice-sub-heading">Quantity</div>
@@ -529,13 +524,14 @@
             <span>$<output class="invoice-item-price">${price}</output></span>
         </div>
         <button class="delete-item"><i class="fa-regular fa-trash-can"></i></button>
-        `
+        `;
     }
 
     function addItemToList() {
         // Take the item name, size, quantity and price 
         var quantity = document.getElementById("quantity").value;
         var item = document.getElementById("itemSelect").value; 
+        item += ", " // add comma to separate item and size
         var size = document.getElementById("sizeSelect").options[document.getElementById("sizeSelect").selectedIndex].text;
         var price = document.getElementById("itemPrice").value; 
 
@@ -557,6 +553,8 @@
 
         updateTotal();
     }
+
+    
 
     function clearItemForm() {
         // select first item in itemSelect
@@ -596,5 +594,27 @@
         });
 
     }
+
+    // add the base storage fee and insurance fee automatically 
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // Generate a new list item with the data above
+        var insuranceFee = document.createElement("li");
+        insuranceFee.className = "invoice-item";
+        insuranceFee.innerHTML = generateAddItemHTML("Insurance Fee", "", 1, 30);
+
+        var baseFee = document.createElement("li"); 
+        baseFee.className = "invoice-item";
+        baseFee.innerHTML = generateAddItemHTML("Base Fee", "", 1, 75);
+
+        // Get the list of invoice items
+        var invoiceList = document.getElementById("invoice-item-list")
+        // Insert the base storage fees to the list
+        invoiceList.insertBefore(baseFee, invoiceList.firstChild);
+        invoiceList.insertBefore(insuranceFee, invoiceList.firstChild)
+
+        updateDeleteButtons();
+        updateTotal();
+    });
 </script>
 </html>
