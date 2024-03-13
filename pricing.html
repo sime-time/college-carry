@@ -513,7 +513,7 @@
         return `
         <div class="invoice-description">
             <div class="invoice-sub-heading">Item</div>
-            <div class="invoice-item-size">${item} ${size}</div>
+            <div class="invoice-item-size">${item}, ${size}</div>
         </div>
         <div class="invoice-item-data">
             <div class="invoice-sub-heading">Quantity</div>
@@ -527,11 +527,28 @@
         `;
     }
 
+    function generateAddFeeHTML(item, quantity, price) {
+        return `
+        <div class="invoice-description">
+            <div class="invoice-sub-heading">Item</div>
+            <div class="invoice-item-size">${item}</div>
+        </div>
+        <div class="invoice-item-data">
+            <div class="invoice-sub-heading">Quantity</div>
+            <div>${quantity}</div>
+        </div>
+        <div class="invoice-item-data">
+            <div class="invoice-sub-heading">Price</div>
+            <span>$<output class="invoice-item-price">${price}</output></span>
+        </div>
+        <button class="delete-item" disabled style="opacity: 0; cursor: default;"><i class="fa-regular fa-trash-can"></i></button>
+        `;
+    }
+
     function addItemToList() {
         // Take the item name, size, quantity and price 
         var quantity = document.getElementById("quantity").value;
-        var item = document.getElementById("itemSelect").value; 
-        item += ", " // add comma to separate item and size
+        var item = document.getElementById("itemSelect").value;
         var size = document.getElementById("sizeSelect").options[document.getElementById("sizeSelect").selectedIndex].text;
         var price = document.getElementById("itemPrice").value; 
 
@@ -601,11 +618,11 @@
         // Generate a new list item with the data above
         var insuranceFee = document.createElement("li");
         insuranceFee.className = "invoice-item";
-        insuranceFee.innerHTML = generateAddItemHTML("Insurance Fee", "", 1, 30);
+        insuranceFee.innerHTML = generateAddFeeHTML("Insurance Fee", 1, 30);
 
         var baseFee = document.createElement("li"); 
         baseFee.className = "invoice-item";
-        baseFee.innerHTML = generateAddItemHTML("Base Fee", "", 1, 75);
+        baseFee.innerHTML = generateAddFeeHTML("Base Fee", 1, 75);
 
         // Get the list of invoice items
         var invoiceList = document.getElementById("invoice-item-list")

@@ -1201,10 +1201,6 @@ a.normal-btn:hover::before {
   .form-container{
     margin: 40px 0;
   }
-  .form-container .container{
-    /* background: #fff; */
-    border: 2px solid #3a86ff;
-  }
   .form-container form > div{
     display: flex;
     justify-content: flex-start;
@@ -1322,6 +1318,10 @@ a.normal-btn:hover::before {
   .form-container .btn-box a.normal-btn{
     width: 630px;
     text-align: center;
+  }
+
+  .btn-box {
+    padding-top: 1.5rem;
   }
 
   #property-type {
