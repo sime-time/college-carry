@@ -354,7 +354,7 @@
                 <div class="price-form">
                     <div id="add-item-input">
                         <label for="items">Item:</label>
-                        <select name="items" id="itemSelect" onchange="updateSizes()">
+                        <select name="items" id="itemSelect" class="item-form-input" onchange="updateSizes()">
                             <option value="" disabled selected hidden>Item</option>
                             <option value="box">CollegeCarry Box</option>
                             <option value="fridge">Fridge</option>
@@ -379,7 +379,7 @@
                         </select>
 
                         <label for="sizes">Size:</label>
-                        <select name="sizes" id="sizeSelect" onchange="updatePrice()" disabled>
+                        <select name="sizes" id="sizeSelect" class="item-form-input" onchange="updatePrice()" disabled>
                             <option value="" disabled selected hidden>Size</option>
                             <!-- dynamically changed by the item selected -->
                         </select>
@@ -390,7 +390,7 @@
                         
                         <div id="btn-container">
                             <button id="addItemButton" class="add-item-button" onclick="addItemToList()" disabled>
-                                Add Item + Price: <span>$<output id="itemPrice" class="item-price">0</output></span>
+                                + Add Item (Price: <span>$<output id="itemPrice" class="item-price">0</output></span>)
                             </button>
                         </div>
                     </div>
@@ -516,21 +516,19 @@
         counter++; 
 
         return `
-        <li class="invoice-item">
-            <div>
-                <div>Item</div>
-                <div>${item}, ${size}</div>
-            </div>
-            <div>
-                <div>Quantity</div>
-                <div>${quantity}</div>
-            </div>
-            <div>
-                <div>Price</div>
-                <span>$<output class="invoice-item-price">${price}</output></span>
-            </div>
-            <button class="delete-item">Delete</button>
-        </li>
+        <div class="invoice-description">
+            <div class="invoice-sub-heading">Item</div>
+            <div class="invoice-item-size">${item}, ${size}</div>
+        </div>
+        <div class="invoice-item-data">
+            <div class="invoice-sub-heading">Quantity</div>
+            <div>${quantity}</div>
+        </div>
+        <div class="invoice-item-data">
+            <div class="invoice-sub-heading">Price</div>
+            <span>$<output class="invoice-item-price">${price}</output></span>
+        </div>
+        <button class="delete-item"><i class="fa-regular fa-trash-can"></i></button>
         `
     }
 
@@ -591,8 +589,8 @@
         deleteButtons.forEach(function(button) {
             // Add click event listener to each delete button
             button.addEventListener('click', function() {
-                // Remove the grandparent, list item, when the delete button is clicked
-                button.parentNode.parentNode.remove();
+                // Remove the parent, list item, when the delete button is clicked
+                button.parentNode.remove();
                 updateTotal();
             });
         });

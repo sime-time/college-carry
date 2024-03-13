@@ -29,6 +29,7 @@ a {
 .container.storage-pricing {
     display: flex;
     flex-direction: row;
+    gap: 5rem;  
 }
 
 ::-webkit-scrollbar {
@@ -316,6 +317,9 @@ main {
 }
 .price-form {
     display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+    width: 100%;
 }
 
 .price-form select {
@@ -336,32 +340,99 @@ main {
     border-style: inset;
     border-color: rgb(118, 118, 118);
     background-color: #edf2f4;
+    margin-bottom: 2rem;
+}
+
+.price-form-result {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex: 1;
+    width: 100%;
+}
+
+.invoice-item-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.invoice-item {
+    display: flex;
+    flex-direction: row;
+    border: 1.75px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+
+
+.invoice-description {
+    flex: 4;
+}
+
+.invoice-item-data {
+    flex: 2;
+}
+
+
+.invoice-sub-heading {
+    color: var(--college-carry-color);
+}
+.invoice-item-size {
+    text-transform: capitalize;
+}
+
+.delete-item {
+    background: transparent;
+    border: none;
+    flex: 0.5;
+    font-size: 18px;
+}
+
+.delete-item:hover {
+    color: red;
+    cursor: pointer;
 }
 
 #add-item-input {
     display: flex;  
     flex-direction: column;
-}
-.add-item-button {
-    font-size: 18px;        
-    padding: 10px 20px;
-    border: 2px solid black;
-    border-style: inset;
-    border-radius: 10px;   
-    justify-items: center;
-    color: black;
-    background: #e9e7e7;
-    border-color: black;
     width: 100%;
 }
-.add-item-button:hover {
+#add-item-input label {
+    margin-bottom: 5px;
+}
+
+.item-form-input {
+    margin-bottom: 1rem;
+}
+.add-item-button {
+    width: 100%;
+    text-align: center;
     color: var(--college-carry-color);
-    border-color: var(--college-carry-color);
+    background: #fff;
+    border: 2px solid var(--college-carry-color);
+    padding: 10px 20px; 
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    transition: 500ms;
+}
+.add-item-button:hover {
+    color: #fff;
+    background: var(--college-carry-color);
     cursor: pointer;
 }
 
 .add-item-button span {
-    color: darkgreen;
+    color: limegreen;
+    transition: 500ms;
+}
+
+.add-item-button:hover span {
+    color: lime;
 }
 
 .item-price {
@@ -373,15 +444,9 @@ main {
     z-index: 0;
 }   
 
-.invoice-item {
-    display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-}
 
-.invoice-item:first-child {
-    flex: 1;
-}
+
+
 
 .invoice-item-price {
     border: none; 
@@ -391,8 +456,13 @@ main {
     color: inherit; 
 }
 
+.price-form-btn-container {
+    width: 100%;
+}
 
 .book-now-btn {
+    display: flex;
+    justify-content: center;
     width: 100%;
     text-align: center;
     color: #fff;
@@ -409,7 +479,6 @@ main {
     color: var(--college-carry-color);
     background: #fff;
 }
-
 
 
 
@@ -1482,6 +1551,7 @@ footer .copy{
 
     .container.storage-pricing {
         flex-direction: column;
+        gap: 2rem;
     }
 }
 
