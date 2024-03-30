@@ -900,6 +900,7 @@ a.normal-btn:hover::before {
     justify-content: flex-start;
     width: 400px;
     font-size: 18px;
+    gap: 15px;
 }
 .flex-card-storage h1{
     text-align: center;
@@ -915,6 +916,7 @@ a.normal-btn:hover::before {
 .flex-card-storage div {
     padding-top: 3px;
     padding-bottom: 3px;
+    line-height: 20px;
 }
 .flex-card-storage i{
     color: #05df13;
