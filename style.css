@@ -284,6 +284,7 @@ main {
     width: 40%;
     background: #3a86ff;
     height: 3px;
+    z-index: 10;
 }
 
 .who::after {
@@ -312,8 +313,12 @@ main {
     width: 60%;
 }
 
-.who-we-are {
+.proudly-serving-iu {
+    flex: 0.8;
+}
 
+.proudly-serving-iu h4 {
+    width: 60%;
 }
 
 /* PRICING CALCULATOR */
@@ -518,6 +523,17 @@ main {
 
 .flex-2 img {
     width: 100%;
+    height: auto;
+}
+
+.center-img {
+    display: flex;
+    justify-content: center;
+}
+
+.center-img img {
+    width: 50%;
+    height: auto;
 }
 
 .title {
@@ -999,8 +1015,8 @@ a.normal-btn:hover::before {
     margin: 20px 0;
 }
 .flex-imgs img{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: auto;
 }
 /* tests */
 .testimonials-section {
@@ -1603,6 +1619,10 @@ footer p {
     .container.storage-pricing {
         flex-direction: column;
         gap: 2rem;
+    }
+    .center-img img {
+        width: 95%;
+        height: auto;
     }
 }
 
