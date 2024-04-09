@@ -24,6 +24,13 @@ app.use(function(req, res, next) {
   next()
 });
 
+// access environment variables
+const senderService = process.env.EMAIL_SERVICE;
+const senderHost = process.env.EMAIL_HOST;
+const senderEmail = process.env.EMAIL_USERNAME;
+const senderPass = process.env.EMAIL_PASSWORD;
+const senderName = process.env.EMAIL_SENDER;
+
 
 /**********************
  * Example get method *
@@ -44,13 +51,6 @@ app.get('/email/*', function(req, res) {
 ****************************/
 
 app.post('/email', async function(req, res) {
-
-  // access environment variables
-  const senderService = process.env.EMAIL_SERVICE;
-  const senderHost = process.env.EMAIL_HOST;
-  const senderEmail = process.env.EMAIL_USERNAME;
-  const senderPass = process.env.EMAIL_PASSWORD;
-  const senderName = process.env.EMAIL_SENDER;
   
   try {
     // create a transporter to send emails
